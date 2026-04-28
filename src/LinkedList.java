@@ -64,12 +64,21 @@ public class LinkedList {
 
     public boolean hasCycle() {
         ListNode slow = this.head, fast = this.head;
-            while(fast != null && fast.getNext() != null){
-                slow  = slow.getNext();
-                fast = fast.getNext().getNext();
-                if(slow == fast)
-                    return true;
-            }
+        while(fast != null && fast.getNext() != null){
+            slow  = slow.getNext();
+            fast = fast.getNext().getNext();
+            if(slow == fast)
+                return true;
+        }
         return false;
+    }
+
+    public ListNode findMiddle() {
+        ListNode slow = this.head, fast = this.head;
+        while(fast != null && fast.getNext() != null){
+            slow = slow.getNext();
+            fast = fast.getNext().getNext();
+        }
+        return slow;
     }
 }
